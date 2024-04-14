@@ -3,7 +3,6 @@
 import {
   Table as TableUI,
   TableBody,
-  TableCaption,
   TableCell,
   TableFooter,
   TableHead,
@@ -12,7 +11,7 @@ import {
 } from "@/components/ui/table";
 import { Checkbox } from "./ui/checkbox";
 
-export default function Table({ data }: any) {
+export default function Table({ data, onCheckboxChange }: any) {
   return (
     <TableUI>
       <TableHeader>
@@ -23,12 +22,15 @@ export default function Table({ data }: any) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map((entry: any, index: number) => (
+        {data.map((entry: any, index: any) => (
           <TableRow key={index}>
             <TableCell>{entry.bag}</TableCell>
             <TableCell>{entry.item}</TableCell>
             <TableCell>
-              <Checkbox />
+              <Checkbox
+                checked={entry.packed}
+                onCheckedChange={() => onCheckboxChange(index)}
+              />
             </TableCell>
           </TableRow>
         ))}

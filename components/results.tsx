@@ -1,28 +1,28 @@
 import {
   Table as TableNew,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 
-export default function Results() {
+export default function Results({ data }: any) {
   return (
     <TableNew>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Bag</TableHead>
-          <TableHead>% packed</TableHead>
+          <TableHead>Bag</TableHead>
+          <TableHead>% Packed</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCell className="font-medium">data</TableCell>
-          <TableCell>data</TableCell>
-        </TableRow>
+        {Object.entries(data).map(([bag, percentage]: any, index) => (
+          <TableRow key={index}>
+            <TableCell>{bag}</TableCell>
+            <TableCell>{percentage.toFixed(2)}%</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </TableNew>
   );

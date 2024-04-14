@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -7,7 +6,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { InputShade } from "@/components/ui/input";
-import { useState } from "react";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
 
 type DropdownItem = {

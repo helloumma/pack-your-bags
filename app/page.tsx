@@ -26,6 +26,8 @@ export default function Home() {
         item: item,
       },
     ]);
+    setBag("");
+    setItem("");
   };
 
   return (

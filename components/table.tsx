@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Checkbox } from "./ui/checkbox";
 
 export default function Table({ data }: any) {
   return (
@@ -18,6 +19,7 @@ export default function Table({ data }: any) {
         <TableRow>
           <TableHead>Bag</TableHead>
           <TableHead>Item</TableHead>
+          <TableHead>Packed</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -25,6 +27,9 @@ export default function Table({ data }: any) {
           <TableRow key={index}>
             <TableCell>{entry.bag}</TableCell>
             <TableCell>{entry.item}</TableCell>
+            <TableCell>
+              <Checkbox />
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

@@ -17,7 +17,7 @@ export default function Results({ data }: any) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {Object.entries(data).map(([bag, percentage]: any, index) => (
+        {Object.entries(data).map(([bag, percentage]: any, index: number) => (
           <TableRow key={index}>
             <TableCell>{bag}</TableCell>
             <TableCell>{percentage.toFixed(2)}%</TableCell>

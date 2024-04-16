@@ -23,9 +23,9 @@ type DropdownItem = {
   value: string;
 };
 const dropdownItems: any[] = [
-  { label: "Backpack", value: "backpack" },
-  { label: "Suitcase", value: "suitcase" },
-  { label: "Toiletries", value: "toiletries" },
+  { label: "Backpack", value: "backpack", className: "bg-red-500" },
+  { label: "Suitcase", value: "suitcase", className: "bg-orange-500" },
+  { label: "Toiletries", value: "toiletries", className: "bg-green-500" },
 ];
 import { Button } from "@/components/ui/button";
 
@@ -50,7 +50,16 @@ export default function Table({
             <TableCell>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline">
+                  <Button
+                    variant="outline"
+                    className={
+                      entry.bag === "backpack"
+                        ? "bg-red-500"
+                        : entry.bag === "suitcase"
+                        ? "bg-orange-500"
+                        : "bg-green-500"
+                    }
+                  >
                     {entry.bag}
                     <TriangleDownIcon className="h-4 w-4" />
                   </Button>
@@ -63,6 +72,7 @@ export default function Table({
                       onCheckedChange={() =>
                         onBagChange(index, dropdownItem.value)
                       }
+                      className={dropdownItem.className}
                     >
                       {dropdownItem.label}
                     </DropdownMenuCheckboxItem>

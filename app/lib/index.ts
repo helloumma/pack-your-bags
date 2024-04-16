@@ -16,9 +16,7 @@ type onCheckboxChange = (index: number) => void;
 type removeRow = (index: number) => void;
 
 type onBagChange = (index: number, dropdown: string) => void;
-// type onBagChange = (value: string) => void;
-
-type bagCheck = Omit<onBagChange, "index">;
+type onBagChangeInput = (value: string) => void;
 
 export interface table {
   data: data[];
@@ -35,7 +33,7 @@ type onSubmit = () => void;
 export interface Input {
   bag: bag;
   item: item;
-  onBagChange: bagCheck;
+  onBagChange: onBagChangeInput;
   onItemChange: onItemChange;
   onSubmit: onSubmit;
 }

@@ -7,31 +7,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { InputShade } from "@/components/ui/input";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
+import { DropdownItemInput, Input } from "@/app/lib";
 
-type DropdownItem = {
-  label: string;
-  value: string;
-};
-
-const dropdownItems: DropdownItem[] = [
+const dropdownItems: DropdownItemInput[] = [
   { label: "Backpack", value: "backpack" },
   { label: "Suitcase", value: "suitcase" },
   { label: "Toiletries", value: "toiletries" },
 ];
-
-type bag = string;
-type item = string;
-type onBagChange = (value: string) => void;
-type onItemChange = (e: string) => void;
-type onSubmit = () => void;
-
-interface Input {
-  bag: bag;
-  item: item;
-  onBagChange: onBagChange;
-  onItemChange: onItemChange;
-  onSubmit: onSubmit;
-}
 
 export default function Input({
   bag,

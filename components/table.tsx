@@ -17,37 +17,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
-
-type DropdownItem = {
-  label: string;
-  value: string;
-  className: string;
-};
-
-type data = {
-  bag: string;
-  item: string;
-  packed: boolean;
-};
-
-type onCheckboxChange = (index: number) => void;
-type removeRow = (index: number) => void;
-
-type onBagChange = (index: number, dropdown: string) => void;
+import { Button } from "@/components/ui/button";
+import { DropdownItem, table } from "@/app/lib";
 
 const dropdownItems: DropdownItem[] = [
   { label: "Backpack", value: "backpack", className: "bg-red-500" },
   { label: "Suitcase", value: "suitcase", className: "bg-orange-500" },
   { label: "Toiletries", value: "toiletries", className: "bg-green-500" },
 ];
-
-interface table {
-  data: data[];
-  onCheckboxChange: onCheckboxChange;
-  removeRow: removeRow;
-  onBagChange: onBagChange;
-}
-import { Button } from "@/components/ui/button";
 
 export default function Table({
   data,

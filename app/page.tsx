@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function Home() {
   const [bag, setBag] = useState<string>("");
   const [item, setItem] = useState<string>("");
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<any[]>([]);
   const [results, setResults] = useState<{}>({});
 
   const handleChangeBag = (newBag: string) => {
@@ -43,8 +43,8 @@ export default function Home() {
     updateResults(filteredData);
   };
 
-  const handleBagChangeInRow = (index: any, newBag: any) => {
-    const newData = data.map((entry: any, idx: any) => {
+  const handleBagChangeInRow = (index: number, newBag: {}) => {
+    const newData = data.map((entry: {}, idx: number) => {
       if (idx === index) {
         return { ...entry, bag: newBag };
       }
@@ -54,7 +54,7 @@ export default function Home() {
     updateResults(newData);
   };
 
-  const updateResults = (newData: any) => {
+  const updateResults = (newData: {}[]) => {
     const counts = newData.reduce((acc: any, { bag, packed }: any) => {
       if (!acc[bag]) {
         acc[bag] = { total: 0, packed: 0 };
@@ -66,7 +66,7 @@ export default function Home() {
       return acc;
     }, {});
 
-    const percentages = Object.keys(counts).reduce((acc: any, key) => {
+    const percentages = Object.keys(counts).reduce((acc: any, key: any) => {
       acc[key] = (counts[key].packed / counts[key].total) * 100;
       return acc;
     }, {});

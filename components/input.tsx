@@ -19,13 +19,27 @@ const dropdownItems: DropdownItem[] = [
   { label: "Toiletries", value: "toiletries" },
 ];
 
+type bag = string;
+type item = string;
+type onBagChange = (value: string) => void;
+type onItemChange = (e: string) => void;
+type onSubmit = () => void;
+
+interface Input {
+  bag: bag;
+  item: item;
+  onBagChange: onBagChange;
+  onItemChange: onItemChange;
+  onSubmit: onSubmit;
+}
+
 export default function Input({
   bag,
   item,
   onBagChange,
   onItemChange,
   onSubmit,
-}: any) {
+}: Input) {
   return (
     <div className="flex w-full max-w-sm items-center space-x-2">
       <DropdownMenu>
@@ -35,9 +49,9 @@ export default function Input({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          {dropdownItems.map((dropdownItem) => (
+          {dropdownItems.map((dropdownItem, index: number) => (
             <DropdownMenuCheckboxItem
-              key={dropdownItem.value}
+              key={index}
               checked={bag === dropdownItem.value}
               onCheckedChange={() => onBagChange(dropdownItem.value)}
             >

@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function Results({ data }: any) {
+export default function Results({ data }: any | {}) {
   return (
     <TableNew>
       <TableHeader>
@@ -17,12 +17,14 @@ export default function Results({ data }: any) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {Object.entries(data).map(([bag, percentage]: any, index: number) => (
-          <TableRow key={index}>
-            <TableCell>{bag}</TableCell>
-            <TableCell>{percentage.toFixed(2)}%</TableCell>
-          </TableRow>
-        ))}
+        {Object.entries(data).map(
+          ([bag, percentage]: [string, any], index: number) => (
+            <TableRow key={index}>
+              <TableCell>{bag}</TableCell>
+              <TableCell>{percentage.toFixed(2) as number}%</TableCell>
+            </TableRow>
+          )
+        )}
       </TableBody>
     </TableNew>
   );

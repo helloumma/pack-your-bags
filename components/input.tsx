@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { InputShade } from "@/components/ui/input";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
-import { DropdownItemInput, Input } from "@/app/lib";
+import { DropdownItemInput, Input as input } from "@/app/lib";
 
 const dropdownItems: DropdownItemInput[] = [
   { label: "Backpack", value: "backpack" },
@@ -21,7 +21,7 @@ export default function Input({
   onBagChange,
   onItemChange,
   onSubmit,
-}: Input) {
+}: input) {
   return (
     <div className="flex w-full max-w-sm items-center space-x-2">
       <DropdownMenu>

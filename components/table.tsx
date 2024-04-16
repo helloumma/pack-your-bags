@@ -40,75 +40,77 @@ export default function Table({
   onBagChange,
 }: table) {
   return (
-    <TableUI>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Bag</TableHead>
-          <TableHead>Item</TableHead>
-          <TableHead>Packed</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((entry: any, index: any) => (
-          <TableRow key={index}>
-            <TableCell>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className={
-                      entry.bag === "backpack"
-                        ? "bg-red-500"
-                        : entry.bag === "suitcase"
-                        ? "bg-orange-500"
-                        : "bg-green-500"
-                    }
-                  >
-                    {entry.bag}
-                    <TriangleDownIcon className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  {dropdownItems.map((dropdownItem) => (
-                    <DropdownMenuCheckboxItem
-                      key={entry.bag}
-                      checked={entry.bag === dropdownItem.value}
-                      onCheckedChange={() =>
-                        onBagChange(index, dropdownItem.value)
-                      }
-                      className={dropdownItem.className}
-                    >
-                      {dropdownItem.label}
-                    </DropdownMenuCheckboxItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </TableCell>
-            <TableCell>{entry.item}</TableCell>
-            <TableCell>
-              <Checkbox
-                checked={entry.packed}
-                onCheckedChange={() => onCheckboxChange(index)}
-              />
-            </TableCell>
-            <TableCell>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <MinusCircledIcon
-                      className="h-4 w-4 cursor-pointer"
-                      onClick={() => removeRow(index)}
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>click to delete row</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </TableCell>
+    <div className="h-screen border-r border-gray-200 w-screen">
+      <TableUI>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Bag</TableHead>
+            <TableHead>Item</TableHead>
+            <TableHead>Packed</TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-    </TableUI>
+        </TableHeader>
+        <TableBody>
+          {data.map((entry: any, index: any) => (
+            <TableRow key={index}>
+              <TableCell>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={
+                        entry.bag === "backpack"
+                          ? "bg-red-500"
+                          : entry.bag === "suitcase"
+                          ? "bg-orange-500"
+                          : "bg-green-500"
+                      }
+                    >
+                      {entry.bag}
+                      <TriangleDownIcon className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56">
+                    {dropdownItems.map((dropdownItem) => (
+                      <DropdownMenuCheckboxItem
+                        key={entry.bag}
+                        checked={entry.bag === dropdownItem.value}
+                        onCheckedChange={() =>
+                          onBagChange(index, dropdownItem.value)
+                        }
+                        className={dropdownItem.className}
+                      >
+                        {dropdownItem.label}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </TableCell>
+              <TableCell>{entry.item}</TableCell>
+              <TableCell>
+                <Checkbox
+                  checked={entry.packed}
+                  onCheckedChange={() => onCheckboxChange(index)}
+                />
+              </TableCell>
+              <TableCell className="pt-3.5">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <MinusCircledIcon
+                        className="h-4 w-4 cursor-pointer"
+                        onClick={() => removeRow(index)}
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>click to delete row</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableUI>
+    </div>
   );
 }

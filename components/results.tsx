@@ -16,7 +16,7 @@ export default function Results({ data }: any | {}) {
           <TableHead>% Packed</TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody>
+      <TableBody className="border-double border-b-4 border-gray-200">
         {Object.entries(data).map(
           ([bag, percentage]: [string, any], index: number) => (
             <TableRow key={index}>

@@ -1,4 +1,9 @@
 "use client";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
 
 import Input from "@/components/input";
 import Table from "@/components/table";
@@ -76,20 +81,25 @@ export default function Home() {
 
   return (
     <div>
-      <Input
-        onBagChange={handleChangeBag}
-        onItemChange={handleChangeItem}
-        onSubmit={onSubmit}
-        bag={bag}
-        item={item}
-      />
-      <Table
-        data={data}
-        onCheckboxChange={handleCheckboxChange}
-        removeRow={handleRowRemoved}
-        onBagChange={handleBagChangeInRow}
-      />
-      <Results data={results} />
+      <div className="w-screen p-2 border-b border-gray-200 flex justify-center">
+        <Input
+          onBagChange={handleChangeBag}
+          onItemChange={handleChangeItem}
+          onSubmit={onSubmit}
+          bag={bag}
+          item={item}
+        />
+      </div>
+
+      <div className="flex">
+        <Table
+          data={data}
+          onCheckboxChange={handleCheckboxChange}
+          removeRow={handleRowRemoved}
+          onBagChange={handleBagChangeInRow}
+        />
+        <Results data={results} />
+      </div>
     </div>
   );
 }

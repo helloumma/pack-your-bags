@@ -43,7 +43,7 @@ export default function Input({
         </DropdownMenuContent>
       </DropdownMenu>
       <InputShade
-        placeholder="Add item"
+        placeholder="Type item to bag..."
         value={item}
         onChange={(e) => onItemChange(e.target.value)}
       />

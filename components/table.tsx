@@ -86,7 +86,7 @@ export default function Table({
             </TableCell>
             <TableCell>
               <MinusCircledIcon
-                className="h-4 w-4"
+                className="h-4 w-4 cursor-pointer"
                 onClick={() => removeRow(index)}
               />
             </TableCell>

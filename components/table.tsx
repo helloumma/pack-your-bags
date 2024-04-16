@@ -16,6 +16,13 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 import { TriangleDownIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { DropdownItem, table } from "@/app/lib";
@@ -85,10 +92,19 @@ export default function Table({
               />
             </TableCell>
             <TableCell>
-              <MinusCircledIcon
-                className="h-4 w-4 cursor-pointer"
-                onClick={() => removeRow(index)}
-              />
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <MinusCircledIcon
+                      className="h-4 w-4 cursor-pointer"
+                      onClick={() => removeRow(index)}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>click to delete row</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </TableCell>
           </TableRow>
         ))}

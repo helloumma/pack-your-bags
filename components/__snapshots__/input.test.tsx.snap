@@ -3,43 +3,47 @@
 exports[`<Input /> screen matches rendered snapshot 1`] = `
 <div>
   <div
-    class="flex w-full max-w-sm items-center space-x-2"
+    class="w-full flex items-center flex-col justify-center"
   >
-    <button
-      aria-expanded="false"
-      aria-haspopup="menu"
-      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
-      data-state="closed"
-      id="radix-:r0:"
-      type="button"
+    <div
+      class="flex  max-w-sm  items-center space-x-2"
     >
-      test bag
-       
-      <svg
-        class="h-4 w-4"
-        fill="none"
-        height="15"
-        viewBox="0 0 15 15"
-        width="15"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+        data-state="closed"
+        id="radix-:r0:"
+        type="button"
       >
-        <path
-          d="M4 6H11L7.5 10.5L4 6Z"
-          fill="currentColor"
-        />
-      </svg>
-    </button>
-    <input
-      class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-      placeholder="Add item"
-      value="test item"
-    />
-    <button
-      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
-      type="submit"
-    >
-      Add
-    </button>
+        test bag
+         
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          height="15"
+          viewBox="0 0 15 15"
+          width="15"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 6H11L7.5 10.5L4 6Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <input
+        class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+        placeholder="Type item to bag..."
+        value="test item"
+      />
+      <button
+        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+        type="button"
+      >
+        Add
+      </button>
+    </div>
   </div>
 </div>
 `;

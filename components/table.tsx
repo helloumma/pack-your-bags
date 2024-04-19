@@ -50,7 +50,7 @@ export default function Table({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((entry: any, index: any) => (
+          {data.map((entry: any, index: number) => (
             <TableRow key={index}>
               <TableCell>
                 <DropdownMenu>

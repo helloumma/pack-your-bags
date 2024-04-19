@@ -1,9 +1,4 @@
 "use client";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
 
 import Input from "@/components/input";
 import Table from "@/components/table";
@@ -15,6 +10,7 @@ export default function Home() {
   const [item, setItem] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
   const [results, setResults] = useState<{}>({});
+  const [error, setError] = useState<string>("");
 
   const handleChangeBag = (newBag: string) => {
     setBag(newBag);
@@ -25,7 +21,13 @@ export default function Home() {
   };
 
   const onSubmit = () => {
+    if (!bag || !item) {
+      alert("Please complete all fields before submitting.");
+      return;
+    }
     setData([...data, { bag: bag, item: item, packed: false }]);
+    if (bag.length < 0 || item.length < 0) setError("all fields required");
+
     setBag("");
     setItem("");
   };
@@ -43,7 +45,7 @@ export default function Home() {
   };
 
   const handleRowRemoved = (index: number) => {
-    const filteredData = data.filter((_: any, idx: any) => idx !== index);
+    const filteredData = data.filter((_: any, idx: number) => idx !== index);
     setData(filteredData);
     updateResults(filteredData);
   };
@@ -88,6 +90,7 @@ export default function Home() {
           onSubmit={onSubmit}
           bag={bag}
           item={item}
+          error={error}
         />
       </div>
 

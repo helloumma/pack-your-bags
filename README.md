@@ -29,6 +29,5 @@ https://lets-pack-your-bags.vercel.app
 
 ### 💭Future Improvements
 
-- Refactor dropdown menu into one reusable component
 - Replace hooks with Signals
 - Add functionality to allow user to add/remove items to the dropdown menu of bags

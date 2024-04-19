@@ -28,9 +28,9 @@ import { Button } from "@/components/ui/button";
 import { DropdownItem, table } from "@/app/lib";
 
 const dropdownItems: DropdownItem[] = [
-  { label: "Backpack", value: "backpack", className: "bg-red-500" },
-  { label: "Suitcase", value: "suitcase", className: "bg-orange-500" },
-  { label: "Toiletries", value: "toiletries", className: "bg-green-500" },
+  { label: "Backpack", value: "backpack", className: "bg-red-200" },
+  { label: "Suitcase", value: "suitcase", className: "bg-green-200" },
+  { label: "Toiletries", value: "toiletries", className: "bg-blue-200" },
 ];
 
 export default function Table({
@@ -59,10 +59,10 @@ export default function Table({
                       variant="outline"
                       className={
                         entry.bag === "backpack"
-                          ? "bg-red-500"
+                          ? "bg-red-200"
                           : entry.bag === "suitcase"
-                          ? "bg-orange-500"
-                          : "bg-green-500"
+                          ? "bg-green-200"
+                          : "bg-blue-200"
                       }
                     >
                       {entry.bag}

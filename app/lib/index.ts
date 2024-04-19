@@ -36,5 +36,5 @@ export interface Input {
   onBagChange: onBagChangeInput;
   onItemChange: onItemChange;
   onSubmit: onSubmit;
-  error: any;
+  error: string;
 }

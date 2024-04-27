@@ -1,4 +1,4 @@
-# 🚀Pack Your Bags
+# 😎Pack Your Bags
 
 A small tool to help you back your bags for whatever the occasion, holiday, long weekend away, moving abroad...
 

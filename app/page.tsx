@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   const handleCheckboxChange = (index: number) => {
-    const newData = data.map((entry: any, idx: any) => {
+    const newData = data.map((entry: { packed: boolean }, idx: number) => {
       if (idx === index) {
         return { ...entry, packed: !entry.packed };
       }
@@ -45,7 +45,9 @@ export default function Home() {
   };
 
   const handleRowRemoved = (index: number) => {
-    const filteredData = data.filter((_: any, idx: number) => idx !== index);
+    const filteredData = data.filter(
+      (_: unknown, idx: number) => idx !== index
+    );
     setData(filteredData);
     updateResults(filteredData);
   };
@@ -73,7 +75,7 @@ export default function Home() {
       return acc;
     }, {});
 
-    const percentages = Object.keys(counts).reduce((acc: any, key: any) => {
+    const percentages = Object.keys(counts).reduce((acc: any, key: string) => {
       acc[key] = (counts[key].packed / counts[key].total) * 100;
       return acc;
     }, {});

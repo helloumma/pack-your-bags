@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function Results({ data }: any | {}) {
+export default function Results({ data }: {} | any) {
   return (
     <TableNew>
       <TableHeader>
